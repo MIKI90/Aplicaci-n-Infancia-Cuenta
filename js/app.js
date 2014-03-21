@@ -88,8 +88,8 @@ $(document).on("ready",function(){
       if (message == '') {
        message = 'nothing';
       }
-      alert(message); // test del mensaje
-      //window.plugins.socialsharing.share(message)
+      //alert(message); // test del mensaje
+      window.plugins.socialsharing.share(message)
    }
 
   // funcion para para graficar la consulta
