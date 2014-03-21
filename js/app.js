@@ -89,7 +89,7 @@ $(document).on("ready",function(){
        message = 'nothing';
       }
       //alert(message); // test del mensaje
-      window.plugins.socialsharing.share(message)
+      window.plugins.socialsharing.share(message);
    }
 
   // funcion para para graficar la consulta
