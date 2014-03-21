@@ -28,6 +28,9 @@ $(document).on("ready",function(){
     //ejecuta la consulta personalizada al presionar boton "mostrar consulta" 
    $('#Mostrar').on('click',function (e) {
       //La query se inicia con un nuevo origen de datos 
+      $('#querytable div').remove();
+      $('#chart div').remove();
+      $('#message p').remove();
       query = new google.visualization.Query('http://spreadsheets.google.com/tq?key=0Aj48-XxAOWJIdHZuN0JYZkZFd21BR2JyOWpXaTNrTkE&gid='+$('#query-0').val()+'&pub=1');
       year= document.getElementById('query-2').value;
       column = document.getElementById('query-1').value;
@@ -52,7 +55,8 @@ $(document).on("ready",function(){
   // manejador que imprime la tabla con la respuesta del objeto datatable de la consulta
   function handleQueryResponse(response) {
      if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+         //alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+         $('#message').append("<p> Error in query: "+ response.getMessage() +" " + response.getDetailedMessage()+" verifique la conexion</p>");
         return;
       }
       data = response.getDataTable();
@@ -61,35 +65,42 @@ $(document).on("ready",function(){
       $( "#followingBallsG_2" ).removeClass( "followingBallsG" ).addClass( "noAnimation" );
       $( "#followingBallsG_3" ).removeClass( "followingBallsG" ).addClass( "noAnimation" );
       $( "#followingBallsG_4" ).removeClass( "followingBallsG" ).addClass( "noAnimation" ); 
-      table.draw(data, {'showRowNumber': true ,'allowHtml':true});
+      table.draw(data, {'showRowNumber': false ,'allowHtml':false});
       google.visualization.events.addListener(table, 'select', selectHandler); // se agrega un manejador de eventos a la tabla
      // selecciona una fila de la tabla para optener un mensaje con su informacion.
      }  
 
   // Manejador para seleccion de fila
   function selectHandler() {
+       $('#message p').remove();
        var selection = table.getSelection();
        var message = '';
+       var str = '';
+       var str1= '';
       for (var i = 0; i < selection.length; i++) {
          var item = selection[i];
          if (item.row != null && item.column != null) {
-           var str = data.getFormattedValue(item.row, item.column);
+            str = data.getFormattedValue(item.row, item.column);
            message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
         } else if (item.row != null) {
-            var str = data.getFormattedValue(item.row, 0);
-            var str1= data.getFormattedValue(item.row, 2);
+             str = data.getFormattedValue(item.row, 0);
+             str1= data.getFormattedValue(item.row, 1);
+             if(str1==$('#query-2').val()){
+                str1= data.getFormattedValue(item.row, 2);
+             }
             //mensaje
             message += 'Para la categoria '+$('#query-0 :selected').text()+' en el rango "'+$('#query-1 :selected').text()+'" en ' + str + ' en el año '+ $('#query-2').val()+' la cifra es de '+str1+'\n';
         } else if (item.column != null) {
-           var str = data.getFormattedValue(0, item.column);
+            str = data.getFormattedValue(0, item.column);
            message += '{row:none, column:' + item.column + '}; value (row 0) = ' + str + '\n';
         } 
       }
       if (message == '') {
        message = 'nothing';
       }
-      //alert(message); // test del mensaje
-      window.plugins.socialsharing.share(message);
+      //$('#message').append("<p>"+message+"</p>");
+     // alert(message); // test del mensaje
+     window.plugins.socialsharing.share(message);
    }
 
   // funcion para para graficar la consulta
@@ -114,7 +125,8 @@ $(document).on("ready",function(){
   // manejador de evento para graficar la consulta
   function handleResponseChart(response) {
      if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        //alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        $('#message').append("<p> Error in query: "+ response.getMessage() +" " + response.getDetailedMessage()+" verifique la conexion</p>");
         return;
       }
       data = response.getDataTable();
@@ -128,14 +140,17 @@ $(document).on("ready",function(){
      //query se inicia con un nuevo origen de datos 
     query = new google.visualization.Query('http://spreadsheets.google.com/tq?key=0Aj48-XxAOWJIdHZuN0JYZkZFd21BR2JyOWpXaTNrTkE&gid='+$('#query-0').val()+'&pub=1');
      //consulta
-     queryString = "SELECT *";
-     $('#query-1 option').remove();
-     $( "#followingBallsG_1" ).removeClass( "noAnimation" ).addClass( "followingBallsG" );
-     $( "#followingBallsG_2" ).removeClass( "noAnimation" ).addClass( "followingBallsG" );
-     $( "#followingBallsG_3" ).removeClass( "noAnimation" ).addClass( "followingBallsG" );
-     $( "#followingBallsG_4" ).removeClass( "noAnimation" ).addClass( "followingBallsG" );
-     query.setQuery(queryString);
-     sendAndDrawInfo();
+    queryString = "SELECT *";
+    $('#querytable div').remove();
+    $('#chart div').remove();
+    $('#message p').remove();
+    $('#query-1 option').remove();
+    $( "#followingBallsG_1" ).removeClass( "noAnimation" ).addClass( "followingBallsG" );
+    $( "#followingBallsG_2" ).removeClass( "noAnimation" ).addClass( "followingBallsG" );
+    $( "#followingBallsG_3" ).removeClass( "noAnimation" ).addClass( "followingBallsG" );
+    $( "#followingBallsG_4" ).removeClass( "noAnimation" ).addClass( "followingBallsG" );
+    query.setQuery(queryString);
+    sendAndDrawInfo();
   });
 
 // invoca manejador de evento para tipo de dato
@@ -146,7 +161,8 @@ $(document).on("ready",function(){
 // manejador para optener las opciones de tipo de dato
   function handleQueryResponseInfo(response) {
      if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        //alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        $('#message').append("<p> Error in query: "+ response.getMessage() +" " + response.getDetailedMessage()+" verifique la conexion</p>");
         return;
       }
       data = response.getDataTable();
