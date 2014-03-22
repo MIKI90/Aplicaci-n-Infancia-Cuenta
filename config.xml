@@ -6,7 +6,7 @@
 
         <!-- versionCode is optional and Android only -->
 
-        <preference name="phonegap-version" value="3.1.0" />
+        <preference name="phonegap-version" value="3.4.0" />
 
         <name>Derechos de la infancia.</name>
 
