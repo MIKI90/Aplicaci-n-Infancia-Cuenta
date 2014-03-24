@@ -14,12 +14,8 @@ La aplicación consulta los datos de la google spreadsheet en esta ubicación ht
 >Estructura 
 
 index.html
-/js ---
-       |
-       |-- > app.js 
-       |--> jquery-2.1.0.min.js
-       |--> jquery.mobile-1.4.2.min.js
-/css---
-          |
-          |-->estilo.css
-          |-->query.mobile-1.4.2.min.css
+
+js/app.js
+
+css/estilo.css
+          
