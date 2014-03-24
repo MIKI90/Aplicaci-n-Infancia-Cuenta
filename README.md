@@ -20,4 +20,7 @@ index.html
 js/app.js
 
 css/estilo.css
-          
+
+Screenshots
+
+![Alt text](https://googledrive.com/host/0B65HWXQz0chKeUZpcHVkcXZrdnM/Captura de pantalla 2014-03-24 a la(s) 16.14.55.png "iOS")
