@@ -3,7 +3,7 @@ Aplicación-Infancia-Cuenta
 
 Aplicación para la visualización de datos abiertos sobre la población infantil de México.
 
-Esta aplicación se encuentra realizada en html5, si que compilo con Apache Cordova (Phonegap) para dispositivos Android y iOS
+Esta aplicación se encuentra realizada en html5, se compilo con Apache Cordova (Phonegap) para dispositivos Android y iOS
 
 > Branch del proyecto Android: https://github.com/MIKI90/infancia-cuenta-android
 
