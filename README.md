@@ -22,11 +22,15 @@ js/app.js
 css/estilo.css
 
 Screenshots
+
 Web
+
 ![Alt text](https://googledrive.com/host/0B65HWXQz0chKeUZpcHVkcXZrdnM/Captura de pantalla 2014-03-24 a la(s) 18.00.07.png "web")
 
 iOS
+
 ![Alt text](https://googledrive.com/host/0B65HWXQz0chKeUZpcHVkcXZrdnM/Captura de pantalla 2014-03-24 a la(s) 16.14.55.png "iOS")
 
 Android
+
 ![Alt text](https://googledrive.com/host/0B65HWXQz0chKeUZpcHVkcXZrdnM/Captura de pantalla 2014-03-24 a la(s) 16.10.21.png "Android")
