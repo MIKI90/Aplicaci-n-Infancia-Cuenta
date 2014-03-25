@@ -28,6 +28,12 @@ Web
 
 ![Alt text](https://googledrive.com/host/0B65HWXQz0chKeUZpcHVkcXZrdnM/Captura de pantalla 2014-03-24 a la(s) 18.00.07.png "web")
 
+![Alt text](https://googledrive.com/host/0B65HWXQz0chKeUZpcHVkcXZrdnM/Captura de pantalla 2014-03-24 a la(s) 18.28.13.png "web2")
+
+![Alt text](https://googledrive.com/host/0B65HWXQz0chKeUZpcHVkcXZrdnM/Captura de pantalla 2014-03-24 a la(s) 18.28.26.png "web3")
+
+![Alt text](https://googledrive.com/host/0B65HWXQz0chKeUZpcHVkcXZrdnM/Captura de pantalla 2014-03-24 a la(s) 18.28.49.png "web4")
+
 iOS
 
 ![Alt text](https://googledrive.com/host/0B65HWXQz0chKeUZpcHVkcXZrdnM/Captura de pantalla 2014-03-24 a la(s) 16.14.55.png "iOS")
